@@ -1,15 +1,19 @@
+import 'package:expedientes/config/routes/AppRouter/AppRouter.dart';
 import 'package:flutter/material.dart';
 
-class ExpedientApp extends StatelessWidget {
-  const ExpedientApp({super.key});
+import '../config/themes/themes.dart';
 
+class ExpedientApp extends StatelessWidget {
+  ExpedientApp({super.key});
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-   return MaterialApp.router(
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Proyecto expedientes',
-      // theme: themeAppLight,
+      theme: themeAppLight,
       // darkTheme: themeAppDark,
-      // routerConfig: appRouter.config(),
+      routerConfig: _appRouter.config(),
     );
   }
 }
