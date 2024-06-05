@@ -6,4 +6,9 @@ class AppStyles {
       blurRadius: 30,
       spreadRadius: -1,
       offset: Offset(0, 0));
+  static const buttonShadow = BoxShadow(
+      color: Colors.black,
+      blurRadius: 4,
+      spreadRadius: -1,
+      offset: Offset(0, 0));
 }

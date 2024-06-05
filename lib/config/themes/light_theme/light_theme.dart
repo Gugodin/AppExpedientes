@@ -18,8 +18,10 @@ ThemeData themeAppLight = ThemeData(
     ),
     // TEXT FIELD DECORATION
     inputDecorationTheme: InputDecorationTheme(
+      suffixIconColor: Colors.black,
         enabledBorder:
             OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         focusedBorder:
             OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         errorBorder:
