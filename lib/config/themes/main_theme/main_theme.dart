@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
 
 ThemeData themeAppLight = ThemeData(
-  fontFamily: 'Quicksand',
+    fontFamily: 'Quicksand',
     brightness: Brightness.light,
-    
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
         surface: Colors.white,
         primary: MainColorsApp.primaryColor,
         secondary: MainColorsApp.secondaryColor,
         onPrimary: MainColorsApp.brightColor),
+    scaffoldBackgroundColor: MainColorsApp.backgroundColor1,
+
     //APP BAR THEME
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -20,10 +21,11 @@ ThemeData themeAppLight = ThemeData(
     ),
     // TEXT FIELD DECORATION
     inputDecorationTheme: InputDecorationTheme(
-      suffixIconColor: Colors.black,
+        suffixIconColor: Colors.black,
         enabledBorder:
             OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-        focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        focusedErrorBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         focusedBorder:
             OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         errorBorder:
@@ -33,7 +35,7 @@ ThemeData themeAppLight = ThemeData(
         const ProgressIndicatorThemeData(color: MainColorsApp.brightColor),
     // TEXT THEME
     textTheme: const TextTheme(
-
+        headlineMedium: TextStyle(color: Color(0xFFD9D9D9),fontSize: 25,fontWeight: FontWeight.bold),
         // LABELS
         labelLarge: TextStyle(
             fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
