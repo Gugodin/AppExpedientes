@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
 
 ThemeData themeAppLight = ThemeData(
+  fontFamily: 'Quicksand',
     brightness: Brightness.light,
+    
     colorScheme: ColorScheme.light(
         surface: Colors.white,
-        primary: ColorsApp.primaryColor,
-        secondary: ColorsApp.secondaryColor,
-        onPrimary: ColorsApp.brightColor),
+        primary: MainColorsApp.primaryColor,
+        secondary: MainColorsApp.secondaryColor,
+        onPrimary: MainColorsApp.brightColor),
     //APP BAR THEME
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -28,7 +30,7 @@ ThemeData themeAppLight = ThemeData(
             OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
     // PROGRESS INDICATOR THEME
     progressIndicatorTheme:
-        const ProgressIndicatorThemeData(color: ColorsApp.brightColor),
+        const ProgressIndicatorThemeData(color: MainColorsApp.brightColor),
     // TEXT THEME
     textTheme: const TextTheme(
 

@@ -1,1 +1,1 @@
-export 'light_theme/light_theme.dart';
+export 'main_theme/main_theme.dart';
