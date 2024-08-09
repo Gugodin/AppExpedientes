@@ -35,14 +35,14 @@ ThemeData themeAppLight = ThemeData(
         const ProgressIndicatorThemeData(color: MainColorsApp.brightColor),
     // TEXT THEME
     textTheme: const TextTheme(
-        headlineMedium: TextStyle(color: Color(0xFFD9D9D9),fontSize: 25,fontWeight: FontWeight.bold),
+        headlineMedium: TextStyle(color: MainColorsApp.brightColorText,fontSize: 25,fontWeight: FontWeight.bold),
         // LABELS
         labelLarge: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+             fontSize: 20, color: MainColorsApp.brightColorText),
         labelMedium: TextStyle(
-            fontSize: 16, color: Colors.black, fontWeight: FontWeight.w400),
+            fontSize: 16, color: MainColorsApp.brightColorText, fontWeight: FontWeight.w400),
         labelSmall: TextStyle(
-          color: Colors.black,
+          color: MainColorsApp.brightColorText,
           fontWeight: FontWeight.w300,
           fontSize: 14,
         )));

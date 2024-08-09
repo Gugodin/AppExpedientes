@@ -30,6 +30,7 @@ flutter:
 
   assets:
   - assets/
+  - assets/images/on_boarding/
 
   fonts:
     - family: Quicksand

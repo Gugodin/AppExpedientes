@@ -6,10 +6,12 @@ class CustomElevatedButton extends StatelessWidget {
   final String label;
   final Function() onTap;
   final bool isLoading;
-  
+  final Color? colorLabel;
+
   const CustomElevatedButton(
       {super.key,
       this.margin = const EdgeInsets.all(10),
+      this.colorLabel,
       required this.label,
       required this.onTap,
       this.isLoading = false});
@@ -36,7 +38,7 @@ class CustomElevatedButton extends StatelessWidget {
                 : Text(
                     label,
                     style: theme.textTheme.labelLarge!
-                        .copyWith(color: Colors.white),
+                        .copyWith(color:colorLabel?? Colors.white),
                   ),
           ),
         ),

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:auto_route/auto_route.dart';
 
 import 'AppRouter.gr.dart';
