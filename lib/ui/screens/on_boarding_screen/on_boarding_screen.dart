@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../config/assets/assets.dart';
 import '../../../config/const/const.dart';
 import '../../commons/commons.dart';
 
