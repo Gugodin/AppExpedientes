@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/const/const.dart';
@@ -16,11 +17,13 @@ class CustomTextField extends StatefulWidget {
   final Function()? onSubmitted;
   final IconData? prefixIcon;
   final IconData? sufixIcon;
+  final String? hintText;
   const CustomTextField({
     super.key,
     required this.controller,
     required this.label,
     required this.node,
+    this.hintText,
     required this.inputType,
     this.isRequierd = true,
     this.typeTextField = TypeTextField.none,
@@ -39,31 +42,39 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: widget.margin,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${widget.label} ${widget.isRequierd ? '*' : ''}'),
+          Text(
+            '${widget.label} ${widget.isRequierd ? '*' : ''}',
+            style: theme.textTheme.labelLarge,
+          ),
           const SizedBox(
             height: 5,
           ),
           TextFormField(
+            style: theme.textTheme.labelMedium!.copyWith(fontSize: 20),
             decoration: InputDecoration(
-                suffixIcon: widget.typeTextField == TypeTextField.password
-                    ? IconButton(
-                        onPressed: () {
-                          setState(() {
-                            obscureText = !obscureText;
-                          });
-                        },
-                        icon: Icon(obscureText
-                            ? Icons.visibility
-                            : Icons.visibility_off))
-                    : null,
-                prefixIcon:
-                    widget.prefixIcon != null ? Icon(widget.prefixIcon) : null),
+              hintText: widget.hintText ?? 'Escriba aquí',
+              suffixIcon: widget.typeTextField == TypeTextField.password
+                  ? IconButton(
+                      onPressed: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      icon: Icon(
+                        obscureText ? Icons.visibility : Icons.visibility_off,
+                        color: MainColorsApp.brightColorText.withOpacity(0.8),
+                      ))
+                  : null,
+              prefixIcon:
+                  widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+            ),
             onFieldSubmitted: (value) {
               if (widget.onSubmitted != null) {
                 widget.onSubmitted!.call();

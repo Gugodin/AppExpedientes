@@ -7,11 +7,13 @@ class CustomElevatedButton extends StatelessWidget {
   final Function() onTap;
   final bool isLoading;
   final Color? colorLabel;
+  final TextStyle? labelStyle;
 
   const CustomElevatedButton(
       {super.key,
       this.margin = const EdgeInsets.all(10),
       this.colorLabel,
+      this.labelStyle,
       required this.label,
       required this.onTap,
       this.isLoading = false});
@@ -37,8 +39,8 @@ class CustomElevatedButton extends StatelessWidget {
                 ? const CircularProgressIndicator()
                 : Text(
                     label,
-                    style: theme.textTheme.labelLarge!
-                        .copyWith(color:colorLabel?? Colors.white),
+                    style:labelStyle?? theme.textTheme.labelLarge!
+                        .copyWith(color:colorLabel?? Colors.white,),
                   ),
           ),
         ),

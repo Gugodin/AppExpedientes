@@ -31,6 +31,8 @@ flutter:
   assets:
   - assets/
   - assets/images/on_boarding/
+  - assets/images/social_media/
+  - assets/logos/
 
   fonts:
     - family: Quicksand
