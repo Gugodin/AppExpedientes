@@ -8,29 +8,38 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:expedientes/ui/screens/login_screen/login_screen.dart' as _i1;
-import 'package:expedientes/ui/screens/on_boarding_screen/on_boarding_screen.dart'
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:expedientes/ui/screens/authentication_screens/login_screen/login_screen.dart'
+    as _i1;
+import 'package:expedientes/ui/screens/authentication_screens/on_boarding_screen/on_boarding_screen.dart'
     as _i2;
-import 'package:flutter/material.dart' as _i4;
+import 'package:expedientes/ui/screens/authentication_screens/register_screen/register_screen.dart'
+    as _i3;
+import 'package:flutter/cupertino.dart' as _i5;
 
-abstract class $AppRouter extends _i3.RootStackRouter {
+abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
+  final Map<String, _i4.PageFactory> pagesMap = {
     LoginRoute.name: (routeData) {
       final args = routeData.argsAs<LoginRouteArgs>(
           orElse: () => const LoginRouteArgs());
-      return _i3.AutoRoutePage<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i1.LoginScreen(key: args.key),
       );
     },
     OnBoardingRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.OnBoardingScreen(),
+      );
+    },
+    RegisterRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child:  _i3.RegisterScreen(),
       );
     },
   };
@@ -38,10 +47,10 @@ abstract class $AppRouter extends _i3.RootStackRouter {
 
 /// generated route for
 /// [_i1.LoginScreen]
-class LoginRoute extends _i3.PageRouteInfo<LoginRouteArgs> {
+class LoginRoute extends _i4.PageRouteInfo<LoginRouteArgs> {
   LoginRoute({
-    _i4.Key? key,
-    List<_i3.PageRouteInfo>? children,
+    _i5.Key? key,
+    List<_i4.PageRouteInfo>? children,
   }) : super(
           LoginRoute.name,
           args: LoginRouteArgs(key: key),
@@ -50,14 +59,14 @@ class LoginRoute extends _i3.PageRouteInfo<LoginRouteArgs> {
 
   static const String name = 'LoginRoute';
 
-  static const _i3.PageInfo<LoginRouteArgs> page =
-      _i3.PageInfo<LoginRouteArgs>(name);
+  static const _i4.PageInfo<LoginRouteArgs> page =
+      _i4.PageInfo<LoginRouteArgs>(name);
 }
 
 class LoginRouteArgs {
   const LoginRouteArgs({this.key});
 
-  final _i4.Key? key;
+  final _i5.Key? key;
 
   @override
   String toString() {
@@ -67,8 +76,8 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [_i2.OnBoardingScreen]
-class OnBoardingRoute extends _i3.PageRouteInfo<void> {
-  const OnBoardingRoute({List<_i3.PageRouteInfo>? children})
+class OnBoardingRoute extends _i4.PageRouteInfo<void> {
+  const OnBoardingRoute({List<_i4.PageRouteInfo>? children})
       : super(
           OnBoardingRoute.name,
           initialChildren: children,
@@ -76,5 +85,19 @@ class OnBoardingRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'OnBoardingRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.RegisterScreen]
+class RegisterRoute extends _i4.PageRouteInfo<void> {
+  const RegisterRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }

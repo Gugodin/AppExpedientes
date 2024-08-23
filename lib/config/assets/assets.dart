@@ -5,7 +5,8 @@ class AssetsApp {
   static String onB4 = 'assets/images/on_boarding/OB4.png';
 
 
-  static String logo1 = 'assets/logos/logo_1.png';
+  static String logoOwlLegalLetters = 'assets/logos/logo_1.png';
+  static String logoOwlLegalNoLetters = 'assets/logos/logo_2.png';
 
   static String socialMediaWhatsApp = 'assets/images/social_media/whatsapp.png';
   static String socialMediaFacebook = 'assets/images/social_media/facebook.png';

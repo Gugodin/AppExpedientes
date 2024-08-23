@@ -5,7 +5,7 @@ import 'package:expedientes/ui/commons/commons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../config/styles/styles.dart';
+import '../../../../config/styles/styles.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
@@ -34,42 +34,35 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: size.height * 0.30,
+                  height: size.height * 0.32,
                   alignment: Alignment.bottomCenter,
-                  // padding: EdgeInsets.only(top: size.height * 0.04),
-                  // decoration: const BoxDecoration(
-                  //     color: Colors.grey,
-                  //     boxShadow: [AppStyles.containerShadow],
-                  //     borderRadius:
-                  //         BorderRadius.vertical(bottom: Radius.circular(20))),
-
-                  child: Container(
-                    color: Colors.blue,
+                  // color: Colors.amber,
+                  child: SizedBox(
                     height: size.height * 0.23,
                     width: size.width * 0.50,
-                    // child: Image.asset(
-                    //   AssetsApp.logo1,
-                    //   filterQuality: FilterQuality.high,
-                    //   fit: BoxFit.scaleDown,
-                    // ),
+                    child: Image.asset(
+                      AssetsApp.logoOwlLegalLetters,
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.scaleDown,
+                    ),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  height: size.height * 0.70,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  height: size.height * 0.68,
                   width: double.infinity,
                   child: Column(
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Text(
+                          'Inicio de sesión',
+                          style: theme.textTheme.headlineMedium!
+                              .copyWith(letterSpacing: 1),
+                        ),
+                      ),
                       Expanded(
-                          flex: 1,
-                          child: Center(
-                              child: Text(
-                            'Inicio de sesión',
-                            style: theme.textTheme.headlineMedium!
-                                .copyWith(letterSpacing: 1),
-                          ))),
-                      Expanded(
-                          flex: 4,
+                          flex: 3,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -103,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                             colorLabel: MainColorsApp.backgroundColor1,
                             margin: EdgeInsets.symmetric(
-                                vertical: size.height * 0.01),
+                                vertical: size.height * 0.02),
                             label: 'Iniciar sesión',
                             onTap: () {
                               FocusScope.of(context).unfocus();
@@ -150,8 +143,7 @@ class LoginScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  // color: Colors.amber,
+                                SizedBox(
                                   height: 50,
                                   width: 50,
                                   child: Image.asset(
@@ -159,11 +151,10 @@ class LoginScreen extends StatelessWidget {
                                     fit: BoxFit.fill,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
-                                Container(
-                                  // color: Colors.amber,
+                                SizedBox(
                                   height: 50,
                                   width: 50,
                                   child: Image.asset(

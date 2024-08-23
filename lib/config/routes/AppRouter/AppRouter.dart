@@ -9,9 +9,12 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         /// routes go here
-        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(
+          page: LoginRoute.page,
+        ),
         AutoRoute(
           page: OnBoardingRoute.page,
         ),
+        AutoRoute(page: RegisterRoute.page, initial: true),
       ];
 }

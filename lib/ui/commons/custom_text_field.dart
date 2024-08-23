@@ -87,6 +87,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
             focusNode: widget.node,
             keyboardType: widget.inputType,
             validator: (value) {
+              if (widget.inputType == TextInputType.emailAddress) {
+                RegExp regExp = RegExp(EMAIL_PATTERN);
+                return regExp.hasMatch(value!)
+                    ? null
+                    : 'Inserte un correo valido';
+              }
+
               if (widget.typeTextField == TypeTextField.curp) {
                 RegExp regExp = RegExp(CURP_PATTERN);
                 return regExp.hasMatch(value!)
