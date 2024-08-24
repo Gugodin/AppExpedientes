@@ -89,14 +89,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         children: [
                           CustomCircleButton(
                             icon: Icons.arrow_back,
-                            colorIcon: MainColorsApp.backgroundColor2,
+                            colorIcon: MainColorsApp.backgroundColorD,
                             onTap: () => decrementCurrentPage(),
                           ),
                           SizedBox(
                             width: size.width * 0.6,
                             height: size.height * 0.09,
                             child: CustomElevatedButton(
-                              colorLabel: MainColorsApp.backgroundColor2,
+                              colorLabel: MainColorsApp.backgroundColorD,
                               label: 'Siguiente',
                               onTap: () => incrementCurrentPage(),
                             ),
@@ -106,7 +106,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     : SizedBox(
                         height: size.height * 0.09,
                         child: CustomElevatedButton(
-                          colorLabel: MainColorsApp.backgroundColor2,
+                          colorLabel: MainColorsApp.backgroundColorD,
                           label: 'Siguiente',
                           margin: const EdgeInsets.symmetric(
                               horizontal: 50, vertical: 10),

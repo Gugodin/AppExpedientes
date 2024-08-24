@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.5.1
+  image_picker: ^1.1.2
   riverpod_annotation: ^2.3.5
 
 dev_dependencies:

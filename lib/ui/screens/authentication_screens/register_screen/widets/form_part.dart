@@ -16,6 +16,7 @@ class FormPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Expanded(
@@ -25,6 +26,7 @@ class FormPart extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: CustomTextField(
+                        labelStyle: theme.textTheme.labelMedium,
                         margin: EdgeInsets.zero,
                         controller: elementName.controller,
                         label: 'Nombre',
@@ -37,6 +39,7 @@ class FormPart extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: CustomTextField(
+                        labelStyle: theme.textTheme.labelMedium,
                         margin: EdgeInsets.zero,
                         controller: elementLastName.controller,
                         label: 'Apellido',
@@ -48,6 +51,7 @@ class FormPart extends StatelessWidget {
         Expanded(
             flex: 1,
             child: CustomTextField(
+                labelStyle: theme.textTheme.labelMedium,
                 margin: EdgeInsets.zero,
                 controller: elementEmail.controller,
                 label: 'Correo electrónico',

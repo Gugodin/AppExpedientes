@@ -9,6 +9,7 @@ enum TypeTextField { password, curp, none }
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String label;
+  final TextStyle? labelStyle;
   final FocusNode node;
   final TextInputType inputType;
   final bool isRequierd;
@@ -24,6 +25,7 @@ class CustomTextField extends StatefulWidget {
     required this.label,
     required this.node,
     this.hintText,
+    this.labelStyle,
     required this.inputType,
     this.isRequierd = true,
     this.typeTextField = TypeTextField.none,
@@ -51,7 +53,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         children: [
           Text(
             '${widget.label} ${widget.isRequierd ? '*' : ''}',
-            style: theme.textTheme.labelLarge,
+            style: widget.labelStyle?? theme.textTheme.labelLarge,
           ),
           const SizedBox(
             height: 5,
