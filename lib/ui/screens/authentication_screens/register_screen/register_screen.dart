@@ -3,12 +3,8 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:expedientes/config/assets/assets.dart';
 import 'package:expedientes/config/colors/colors.dart';
-import 'package:expedientes/ui/commons/custom_elevated_button.dart';
-import 'package:expedientes/ui/screens/authentication_screens/register_screen/widets/form_part.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../commons/commons.dart';
 import 'widets/widgets.dart';
