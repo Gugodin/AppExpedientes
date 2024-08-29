@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes/config/assets/assets.dart';
 import 'package:expedientes/config/colors/colors.dart';
+import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:expedientes/ui/commons/commons.dart';
 import 'package:flutter/material.dart';
-
 
 @RoutePage()
 // ignore: must_be_immutable
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -107,7 +107,9 @@ class LoginScreen extends StatelessWidget {
                           flex: 1,
                           child: Center(
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                context.router.push(const RegisterRoute());
+                              },
                               borderRadius: BorderRadius.circular(15),
                               child: Padding(
                                 padding: const EdgeInsets.all(5.0),

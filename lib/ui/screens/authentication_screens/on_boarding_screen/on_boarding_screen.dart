@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes/config/colors/colors.dart';
+import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/const/const.dart';
@@ -127,7 +128,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       controller.animateToPage(currentIndex,
           duration: const Duration(milliseconds: 800), curve: Curves.linear);
     } else {
-      print('Mandar a login');
+      print('HOLAAA');
+      // context.navigateNamedTo(LoginRoute.name);
+      // router.pushNamed('/books');
+      context.router.push(LoginRoute());
+      
     }
   }
 

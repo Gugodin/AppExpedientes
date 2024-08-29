@@ -6,6 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config/routes/AppRouter/AppRouter.gr.dart';
 import '../../../commons/commons.dart';
 import 'widets/widgets.dart';
 
@@ -92,7 +93,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 15.0),
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  // context.pushRoute(LoginRoute.name);
+                                  context.router.push(LoginRoute());
+                                },
                                 borderRadius: BorderRadius.circular(15),
                                 child: Padding(
                                   padding: const EdgeInsets.all(5.0),
