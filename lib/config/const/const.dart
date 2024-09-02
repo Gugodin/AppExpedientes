@@ -13,15 +13,20 @@ final listImages = [
   AssetsApp.onB3,
   AssetsApp.onB4
 ];
-final listTitle = [
+final listTitleOnBoarding = [
   'Archiva tus casos',
   'Monitorea tus casos',
   'Las mejores asesorías',
   'Se parte de nosotros'
 ];
-final listDescription = [
+final listDescriptionOnBoarding = [
   'Almacena tus casos en nuestra aplicación por mucho tiempo, contamos con la mayor seguridad que existe para salvaguardar tus datos.',
   'Te mostramos paso a paso en donde vas con tu caso para que no tengas ningún tipo de duda al darle seguimiento.',
   'Contamos con el mejor buffete de abogados aquí en México los cuales llevarán tus casos de la mejor forma posible.',
   'Ya sea como abogado o cliente puedes ser parte de nuestra comunidad, buscando la justicia para todos los individuos.'
 ];
+
+const String label1HasRegisteredUser =
+    'Tu solicitud ha sido enviada, tenemos una espera de al menos 3 dias habiles para contestarte. \n\nNos contactaremos contigo una vez ya se haya aceptado tu solicitud.';
+const String label2HasRegisteredUser =
+    '\nSi deseas cancelar la solicitud para mandar otra, has click en el boton de abajo.';

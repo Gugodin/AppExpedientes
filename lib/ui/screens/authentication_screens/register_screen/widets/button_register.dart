@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:expedientes/infraestructure/infraestructure.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../config/colors/colors.dart';
@@ -5,10 +8,13 @@ import '../../../../commons/commons.dart';
 
 class ButtonRegister extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-
+  final File? imageSelected;
+  final Function(String idRegister) onRegistered;
   const ButtonRegister({
     super.key,
     required this.formKey,
+    required this.imageSelected,
+    required this.onRegistered,
   });
 
   @override
@@ -25,8 +31,12 @@ class ButtonRegister extends StatelessWidget {
       label: 'Solicitar registro',
       onTap: () {
         FocusScope.of(context).unfocus();
-        if (formKey.currentState!.validate()) {
-          print('Hola');
+        if (formKey.currentState!.validate() && imageSelected != null) {
+          print('HACEMOS SET STATE');
+          HelperPrefs.registrationRequest = '1';
+          onRegistered('1');
+        } else {
+          print('SELECCIONA UNA IMAGEN');
         }
       },
     );

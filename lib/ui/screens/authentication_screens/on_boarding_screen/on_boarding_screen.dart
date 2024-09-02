@@ -51,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   flex: 1,
                                   child: Center(
                                     child: Text(
-                                      listTitle[index],
+                                      listTitleOnBoarding[index],
                                       style: Theme.of(context)
                                           .textTheme
                                           .headlineMedium,
@@ -63,7 +63,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20.0),
                                     child: Text(
-                                      listDescription[index],
+                                      listDescriptionOnBoarding[index],
                                       textAlign: TextAlign.center,
                                       style: Theme.of(context)
                                           .textTheme
