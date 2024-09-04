@@ -1,8 +1,4 @@
 import 'dart:io';
-
-import 'package:auto_route/auto_route.dart';
-import 'package:expedientes/config/colors/colors.dart';
-import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:expedientes/ui/commons/custom_select_photo_area.dart';
 import 'package:expedientes/ui/screens/authentication_screens/register_screen/widets/go_to_login.dart';
 import 'package:flutter/material.dart';

@@ -1,15 +1,10 @@
 // ignore_for_file: must_be_immutable
 
-import 'dart:io';
-
 import 'package:auto_route/auto_route.dart';
-import 'package:expedientes/config/colors/colors.dart';
 import 'package:expedientes/infraestructure/infraestructure.dart';
 import 'package:expedientes/ui/screens/authentication_screens/register_screen/sub_screens/sub_screens.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../config/routes/AppRouter/AppRouter.gr.dart';
-import '../../../commons/commons.dart';
 import 'widets/widgets.dart';
 
 @RoutePage()
