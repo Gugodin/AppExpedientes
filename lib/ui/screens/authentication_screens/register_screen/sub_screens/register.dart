@@ -14,7 +14,6 @@ class RegisterBody extends StatefulWidget {
 }
 
 class _RegisterBodyState extends State<RegisterBody> {
-
   FocusNode node1 = FocusNode();
   TextEditingController controllerName = TextEditingController();
   FocusNode node2 = FocusNode();
@@ -45,7 +44,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                 ),
               ))),
           Expanded(
-              flex: 7,
+              flex: 8,
               child: FormPart(
                   elementName:
                       ElementForm(controller: controllerName, node: node1),

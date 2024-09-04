@@ -17,7 +17,6 @@ class CustomTextField extends StatefulWidget {
   final TypeTextField typeTextField;
   final EdgeInsets margin;
   final Function()? onSubmitted;
-  final IconData? prefixIcon;
   final IconData? sufixIcon;
   final String? hintText;
   final List<TextInputFormatter>? formatters;
@@ -35,7 +34,6 @@ class CustomTextField extends StatefulWidget {
       this.typeTextField = TypeTextField.none,
       this.margin = const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       this.onSubmitted,
-      this.prefixIcon,
       this.sufixIcon,
       this.prefix,
       this.formatters});
@@ -64,12 +62,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             height: 5,
           ),
           TextFormField(
-            
             inputFormatters: widget.formatters,
-            style: theme.textTheme.labelMedium!.copyWith(fontSize: 20),
+            style: theme.textTheme.labelMedium!.copyWith(
+                fontSize: widget.inputType == TextInputType.phone ? 18 : 20),
             decoration: InputDecoration(
-              prefix: widget.prefix,
               hintText: widget.hintText ?? 'Escriba aquí',
+              hintStyle: widget.inputType == TextInputType.phone
+                  ? TextStyle(
+                      color: MainColorsApp.brightColorText.withOpacity(0.3),
+                      fontSize: 18)
+                  : null,
               suffixIcon: widget.typeTextField == TypeTextField.password
                   ? IconButton(
                       onPressed: () {
@@ -82,8 +84,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         color: MainColorsApp.brightColorText.withOpacity(0.8),
                       ))
                   : null,
-              prefixIcon:
-                  widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
+              prefixIcon: widget.prefix,
             ),
             onFieldSubmitted: (value) {
               if (widget.onSubmitted != null) {

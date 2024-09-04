@@ -39,7 +39,7 @@ class FormPart extends StatelessWidget {
             Expanded(
               child: CustomTextField(
                   prefix: const Padding(
-                    padding: EdgeInsets.only(right: 8.0),
+                    padding: EdgeInsets.all(12),
                     child: Text(
                       '+52',
                       style: TextStyle(color: Colors.white),
@@ -48,10 +48,11 @@ class FormPart extends StatelessWidget {
                   labelStyle: theme.textTheme.labelMedium,
                   margin: EdgeInsets.zero,
                   controller: elementNumber.controller,
-                  label: 'Número de telefono',
+                  label: 'Número de celular',
                   node: elementNumber.node,
                   formatters: [LengthLimitingTextInputFormatter(10)],
                   isRequierd: true,
+                  hintText: '**********',
                   inputType: TextInputType.phone),
             ),
           ],

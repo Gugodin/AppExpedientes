@@ -27,6 +27,6 @@ final listDescriptionOnBoarding = [
 ];
 
 const String label1HasRegisteredUser =
-    'Tu solicitud ha sido enviada, tenemos una espera de al menos 3 dias habiles para contestarte. \n\nNos contactaremos contigo una vez ya se haya aceptado tu solicitud.';
+    'Tu solicitud ha sido enviada, tenemos una espera de al menos 3 días habiles para contestarte. \n\nNos contactaremos contigo una vez ya se haya aceptado tu solicitud.';
 const String label2HasRegisteredUser =
     '\nSi deseas cancelar la solicitud para mandar otra, has click en el boton de abajo.';
