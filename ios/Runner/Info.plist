@@ -28,6 +28,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need the access to photo library because the user will need to upload photos in terms of account creation request and to upload photos in our database.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>In case that the user has not the image that wants to upload we want to give him the chance to take the photo from the app.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>In case that the user wants to upload a video to our platform but it is not a common functionality.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -5,12 +5,13 @@ import '../../colors/colors.dart';
 ThemeData themeAppLight = ThemeData(
     fontFamily: 'Quicksand',
     brightness: Brightness.light,
+    iconTheme: const IconThemeData(color: Colors.white),
     colorScheme: const ColorScheme.light(
         surface: Colors.white,
         primary: MainColorsApp.primaryColor,
         secondary: MainColorsApp.secondaryColor,
         onPrimary: MainColorsApp.brightColor),
-    scaffoldBackgroundColor: MainColorsApp.backgroundColor1,
+    scaffoldBackgroundColor: MainColorsApp.backgroundColor,
 
     //APP BAR THEME
     appBarTheme: const AppBarTheme(
@@ -45,11 +46,9 @@ ThemeData themeAppLight = ThemeData(
     // TEXT BUTTON
     textButtonTheme: const TextButtonThemeData(
         style: ButtonStyle(
-          
             textStyle: WidgetStatePropertyAll(TextStyle(
                 fontSize: 16,
                 color: MainColorsApp.brightColorText,
-                
                 decoration: TextDecoration.underline,
                 decorationColor: MainColorsApp.brightColorText,
                 fontWeight: FontWeight.bold)))),

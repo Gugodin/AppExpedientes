@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:expedientes/config/colors/colors.dart';
+import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/const/const.dart';
@@ -50,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   flex: 1,
                                   child: Center(
                                     child: Text(
-                                      listTitle[index],
+                                      listTitleOnBoarding[index],
                                       style: Theme.of(context)
                                           .textTheme
                                           .headlineMedium,
@@ -62,7 +63,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20.0),
                                     child: Text(
-                                      listDescription[index],
+                                      listDescriptionOnBoarding[index],
                                       textAlign: TextAlign.center,
                                       style: Theme.of(context)
                                           .textTheme
@@ -89,14 +90,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         children: [
                           CustomCircleButton(
                             icon: Icons.arrow_back,
-                            colorIcon: MainColorsApp.backgroundColor2,
+                            colorIcon: MainColorsApp.backgroundColorD,
                             onTap: () => decrementCurrentPage(),
                           ),
                           SizedBox(
                             width: size.width * 0.6,
                             height: size.height * 0.09,
                             child: CustomElevatedButton(
-                              colorLabel: MainColorsApp.backgroundColor2,
+                              colorLabel: MainColorsApp.backgroundColorD,
                               label: 'Siguiente',
                               onTap: () => incrementCurrentPage(),
                             ),
@@ -106,7 +107,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     : SizedBox(
                         height: size.height * 0.09,
                         child: CustomElevatedButton(
-                          colorLabel: MainColorsApp.backgroundColor2,
+                          colorLabel: MainColorsApp.backgroundColorD,
                           label: 'Siguiente',
                           margin: const EdgeInsets.symmetric(
                               horizontal: 50, vertical: 10),
@@ -127,7 +128,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       controller.animateToPage(currentIndex,
           duration: const Duration(milliseconds: 800), curve: Curves.linear);
     } else {
-      print('Mandar a login');
+      print('HOLAAA');
+      // context.navigateNamedTo(LoginRoute.name);
+      // router.pushNamed('/books');
+      context.router.push(LoginRoute());
+      
     }
   }
 
