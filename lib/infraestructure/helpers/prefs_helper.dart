@@ -20,6 +20,13 @@ class HelperPrefs extends ChangeNotifier {
     _instancia.notifyListeners();
   }
 
+    static bool get isFirtsTime {
+    return _prefs.getBool('is_firts_time') ?? true;
+  }
+
+  static set isFirtsTime(bool value) {
+    _prefs.setBool('is_firts_time', value);
+  }
 
   static String get registrationRequest {
     return _prefs.getString('id_registration_request') ?? '';
@@ -27,7 +34,6 @@ class HelperPrefs extends ChangeNotifier {
 
   static set registrationRequest(String value) {
     _prefs.setString('id_registration_request', value);
-    _instancia.notifyListeners();
   }
 
   static String get idUser {
@@ -36,6 +42,5 @@ class HelperPrefs extends ChangeNotifier {
 
   static set idUser(String value) {
     _prefs.setString("id_user", value);
-    _instancia.notifyListeners();
   }
 }

@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC0iFjGYlbPJlvuJTeuPl4iHYdvNp6_aoE',
-    appId: '1:561618277552:android:fcc3dc05137c884a329775',
-    messagingSenderId: '561618277552',
-    projectId: 'owl-legal',
-    storageBucket: 'owl-legal.appspot.com',
+    apiKey: 'AIzaSyDa5zMSGhYW2NHjp-8g-pFP8orrvMFeCnw',
+    appId: '1:200856627811:android:8a844da9806fb6234aa656',
+    messagingSenderId: '200856627811',
+    projectId: 'owl-legal-36559',
+    storageBucket: 'owl-legal-36559.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDCsZxBIks876lmDIC_VCMCvfKw01N2CQg',
-    appId: '1:561618277552:ios:ce08412b5846a36e329775',
-    messagingSenderId: '561618277552',
-    projectId: 'owl-legal',
-    storageBucket: 'owl-legal.appspot.com',
+    apiKey: 'AIzaSyAIDLS7auNERnQrBtEiLfYnV_hNd3_vggM',
+    appId: '1:200856627811:ios:44468cd1c0ec5aac4aa656',
+    messagingSenderId: '200856627811',
+    projectId: 'owl-legal-36559',
+    storageBucket: 'owl-legal-36559.appspot.com',
     iosBundleId: 'com.example.expedientes',
   );
+
 }

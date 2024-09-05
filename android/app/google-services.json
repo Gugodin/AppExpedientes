@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "561618277552",
-    "project_id": "owl-legal",
-    "storage_bucket": "owl-legal.appspot.com"
+    "project_number": "200856627811",
+    "project_id": "owl-legal-36559",
+    "storage_bucket": "owl-legal-36559.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:561618277552:android:fcc3dc05137c884a329775",
+        "mobilesdk_app_id": "1:200856627811:android:8a844da9806fb6234aa656",
         "android_client_info": {
           "package_name": "com.example.expedientes"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC0iFjGYlbPJlvuJTeuPl4iHYdvNp6_aoE"
+          "current_key": "AIzaSyDa5zMSGhYW2NHjp-8g-pFP8orrvMFeCnw"
         }
       ],
       "services": {
