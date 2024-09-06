@@ -15,7 +15,7 @@ import 'package:expedientes/ui/screens/authentication_screens/on_boarding_screen
     as _i2;
 import 'package:expedientes/ui/screens/authentication_screens/register_screen/register_screen.dart'
     as _i3;
-import 'package:flutter/cupertino.dart' as _i5;
+import 'package:flutter/material.dart' as _i5;
 
 abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -39,7 +39,7 @@ abstract class $AppRouter extends _i4.RootStackRouter {
     RegisterRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child:  _i3.RegisterScreen(),
+        child: const _i3.RegisterScreen(),
       );
     },
   };

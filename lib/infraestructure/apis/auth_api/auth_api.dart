@@ -2,7 +2,7 @@ import 'package:expedientes/domain/models/models.dart';
 
 import '../../../services/services.dart';
 
-class AuthUserApi implements AuthUserRepositorie {
+class AuthApi implements AuthRepositorie {
   final authService = AuthFirebaseService();
 
   @override

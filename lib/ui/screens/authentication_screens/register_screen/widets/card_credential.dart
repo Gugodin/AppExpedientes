@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
 
-class CardCredential extends StatelessWidget {
+class CardCredentialWidget extends StatelessWidget {
   final File? imageSelected;
-  const CardCredential({super.key, required this.imageSelected});
+  const CardCredentialWidget({super.key, required this.imageSelected});
 
   @override
   Widget build(BuildContext context) {

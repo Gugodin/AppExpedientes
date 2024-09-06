@@ -5,6 +5,8 @@ import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:expedientes/ui/commons/commons.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/widgets.dart';
+
 @RoutePage()
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
@@ -30,21 +32,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: size.height * 0.32,
-                  alignment: Alignment.bottomCenter,
-                  // color: Colors.amber,
-                  child: SizedBox(
-                    height: size.height * 0.23,
-                    width: size.width * 0.50,
-                    child: Image.asset(
-                      AssetsApp.logoOwlLegalLetters,
-                      filterQuality: FilterQuality.high,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ),
+                const ImageLogoWidget(),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   height: size.height * 0.68,
@@ -99,72 +87,16 @@ class LoginScreen extends StatelessWidget {
                             onTap: () {
                               FocusScope.of(context).unfocus();
                               if (_formKey.currentState!.validate()) {
-                                print('Hola');
+                                // AuthFirebaseService
                               }
                             },
                           )),
-                      Expanded(
+                      const Expanded(
                           flex: 1,
-                          child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                context.router.push(const RegisterRoute());
-                              },
-                              borderRadius: BorderRadius.circular(15),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: RichText(
-                                  text: TextSpan(children: [
-                                    TextSpan(
-                                        text: '¿No tienes cuenta? ',
-                                        style: theme.textTheme.labelMedium!
-                                            .copyWith(
-                                          fontSize: 18,
-                                        )),
-                                    TextSpan(
-                                        text: 'Registrate',
-                                        style: theme.textTheme.labelMedium!
-                                            .copyWith(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                                decoration:
-                                                    TextDecoration.underline,
-                                                decorationColor: MainColorsApp
-                                                    .brightColorText)),
-                                  ]),
-                                ),
-                              ),
-                            ),
-                          )),
-                      Expanded(
+                          child: GoToRegisterWidget()),
+                      const Expanded(
                           flex: 1,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: Image.asset(
-                                    AssetsApp.socialMediaWhatsApp,
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: Image.asset(
-                                    AssetsApp.socialMediaFacebook,
-                                    fit: BoxFit.fill,
-                                  ),
-                                )
-                              ],
-                            ),
-                          )),
+                          child: SocialMediaWidget()),
                     ],
                   ),
                 ),

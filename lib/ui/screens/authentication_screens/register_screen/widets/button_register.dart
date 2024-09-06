@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import '../../../../../config/colors/colors.dart';
 import '../../../../commons/commons.dart';
 
-class ButtonRegister extends StatelessWidget {
+class ButtonRegisterWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final File? imageSelected;
   final Function(String idRegister) onRegistered;
-  const ButtonRegister({
+  const ButtonRegisterWidget({
     super.key,
     required this.formKey,
     required this.imageSelected,

@@ -45,7 +45,7 @@ class _RegisterBodyState extends State<RegisterBody> {
               ))),
           Expanded(
               flex: 8,
-              child: FormPart(
+              child: FormPartWidget(
                   elementName:
                       ElementForm(controller: controllerName, node: node1),
                   elementNumber:
@@ -62,14 +62,14 @@ class _RegisterBodyState extends State<RegisterBody> {
                     });
                   }
                 },
-                child: CardCredential(
+                child: CardCredentialWidget(
                   imageSelected: imageSelected,
                 ),
               )),
           const Expanded(flex: 3, child: TermsAndConditionWidget()),
           Expanded(
               flex: 2,
-              child: ButtonRegister(
+              child: ButtonRegisterWidget(
                 formKey: _formKey,
                 imageSelected: imageSelected,
                 onRegistered: widget.onRegistrated,

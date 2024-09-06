@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const ImageRegister(),
+              const ImageRegisterWidget(),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 width: double.infinity,

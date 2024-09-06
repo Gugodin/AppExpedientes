@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 
 import '../../../../commons/commons.dart';
 
-class FormPart extends StatelessWidget {
+class FormPartWidget extends StatelessWidget {
   final ElementForm elementName;
   final ElementForm elementNumber;
   final ElementForm elementEmail;
 
-  const FormPart(
+  const FormPartWidget(
       {super.key,
       required this.elementName,
       required this.elementNumber,

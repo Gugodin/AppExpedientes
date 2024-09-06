@@ -1,7 +1,7 @@
 import 'package:expedientes/config/assets/assets.dart';
 import 'package:flutter/material.dart';
-class ImageRegister extends StatelessWidget {
-  const ImageRegister({
+class ImageRegisterWidget extends StatelessWidget {
+  const ImageRegisterWidget({
     super.key,
   });
 

@@ -1,6 +1,6 @@
 import '../model/model.dart';
 
-abstract class AuthUserRepositorie {
+abstract class AuthRepositorie {
   Future<UserModel?> login (String email,String password);
   Future<void> logOut ();
   Future<bool> resetPassword (String email);
