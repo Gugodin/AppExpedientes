@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:expedientes/config/colors/colors.dart';
-import 'package:expedientes/config/routes/AppRouter/AppRouter.gr.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../config/const/const.dart';
+import '../../../../config/config.dart';
 import '../../../commons/commons.dart';
 
 @RoutePage()

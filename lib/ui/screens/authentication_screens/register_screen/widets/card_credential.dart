@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../config/config.dart';
 
 class CardCredentialWidget extends StatelessWidget {
   final File? imageSelected;

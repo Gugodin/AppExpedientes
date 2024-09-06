@@ -1,11 +1,11 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:auto_route/auto_route.dart';
-import 'package:expedientes/infraestructure/infraestructure.dart';
-import 'package:expedientes/ui/screens/authentication_screens/register_screen/sub_screens/sub_screens.dart';
 import 'package:flutter/material.dart';
 
+import 'sub_screens/sub_screens.dart';
 import 'widets/widgets.dart';
+import '../../../ui.dart';
 
 @RoutePage()
 class RegisterScreen extends StatefulWidget {
@@ -35,8 +35,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    print('HelperPrefs.registrationRequest');
-    print(HelperPrefs.registrationRequest);
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),

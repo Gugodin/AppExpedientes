@@ -1,9 +1,9 @@
-import 'package:expedientes/config/const/const.dart';
-import 'package:expedientes/infraestructure/infraestructure.dart';
-import 'package:expedientes/ui/commons/commons.dart';
 import 'package:flutter/material.dart';
 
-import '../widets/go_to_login.dart';
+import '../../../../../config/config.dart';
+import '../../../../ui.dart';
+import '../widets/widgets.dart';
+
 
 class HasRegisteredScreen extends StatefulWidget {
   final Function() onDeleteRegistration;
@@ -60,7 +60,7 @@ class _HasRegisteredScreenState extends State<HasRegisteredScreen> {
             ],
           ),
         ),
-        Expanded(flex: 1, child: GoToLoginWidget()),
+        const Expanded(flex: 1, child: GoToLoginWidget()),
       ],
     );
   }

@@ -1,5 +1,6 @@
-import 'package:expedientes/config/assets/assets.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../config/config.dart';
 
 class ImageLogoWidget extends StatelessWidget {
   const ImageLogoWidget({super.key});

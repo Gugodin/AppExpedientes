@@ -1,5 +1,6 @@
-import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../config/config.dart';
 
 class TermsAndConditionWidget extends StatelessWidget {
   const TermsAndConditionWidget({

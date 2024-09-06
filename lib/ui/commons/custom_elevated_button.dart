@@ -1,5 +1,6 @@
-import 'package:expedientes/config/styles/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../config/config.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final EdgeInsets margin;

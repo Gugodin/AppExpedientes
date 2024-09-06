@@ -1,6 +1,7 @@
 import 'package:expedientes/domain/models/models.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../../services/services.dart';
+import '../../infraestructure.dart';
 
 class AuthApi implements AuthRepositorie {
   final authService = AuthFirebaseService();
@@ -24,6 +25,12 @@ class AuthApi implements AuthRepositorie {
   @override
   Future<bool> resetPassword(String email) {
     // TODO: implement resetPassword
+    throw UnimplementedError();
+  }
+  
+  @override
+  Stream<User?> observeUserAuthState() {
+    // TODO: implement observeUserAuthState
     throw UnimplementedError();
   }
 }

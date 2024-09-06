@@ -1,10 +1,9 @@
 import 'dart:io';
 
-import 'package:expedientes/infraestructure/infraestructure.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../config/colors/colors.dart';
-import '../../../../commons/commons.dart';
+import '../../../../../config/config.dart';
+import '../../../../ui.dart';
 
 class ButtonRegisterWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;

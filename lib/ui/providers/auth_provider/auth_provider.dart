@@ -8,5 +8,5 @@ part 'auth_provider.g.dart';
 
 @riverpod
 AuthUseCases authUseCases(AuthUseCasesRef ref) {
-  return AuthUseCases(authRepositorie:  AuthApi());
+  return AuthUseCases(authRepositorie:AuthApi());
 }
