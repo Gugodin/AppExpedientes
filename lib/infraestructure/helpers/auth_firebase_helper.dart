@@ -1,25 +1,30 @@
 import 'package:expedientes/domain/models/user/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class AuthFirebaseService {
+class AuthFirebaseHelper {
+  static final instance = AuthFirebaseHelper._();
 
-  static final instance = AuthFirebaseService._();
+  AuthFirebaseHelper._();
 
-  AuthFirebaseService._();
-
-  factory AuthFirebaseService() {
+  factory AuthFirebaseHelper() {
     return instance;
   }
-  
-   final FirebaseAuth autInstance = FirebaseAuth.instance;
 
-   Stream<User?> get stateOfUser => autInstance.authStateChanges();
+  final FirebaseAuth autInstance = FirebaseAuth.instance;
 
-  Future<void> loginEmailAndPassword(String email, String password) async {
-    final resp = await autInstance.signInWithEmailAndPassword(email: email, password: password);
+  Stream<User?> get stateOfUser => autInstance.authStateChanges();
+
+  Future<UserCredential?> loginEmailAndPassword(String email, String password) async {
+
+    try {
+      return await autInstance.signInWithEmailAndPassword(
+        email: email, password: password);
+    } catch (e) {
+      return null;
+    }
   }
 
-   Future<void> registerUser(UserModel user, String password) async {
+  Future<void> registerUser(UserModel user, String password) async {
     final resp = await autInstance.createUserWithEmailAndPassword(
         email: user.email, password: password);
   }

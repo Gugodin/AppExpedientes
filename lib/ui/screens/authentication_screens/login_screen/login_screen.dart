@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
 import '../../../ui.dart';
@@ -7,7 +8,7 @@ import 'widgets/widgets.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerWidget {
   LoginScreen({super.key});
 
   FocusNode node1 = FocusNode();
@@ -18,8 +19,29 @@ class LoginScreen extends StatelessWidget {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+Future<void> login(BuildContext context,WidgetRef ref) async {
+    FocusScope.of(context).unfocus();
+    if (_formKey.currentState!.validate()) {
+      bool resp = await ref
+          .read(authUseCasesProvider)
+          .login(userController.text, passwordController.text);
+
+      if (!context.mounted) return;
+
+      if (resp) {
+        if (HelperPrefs.isAdmin) {
+          context.pushRoute(const AdminHomeRoute());
+        } else {
+          context.pushRoute(const ClientHomeRoute());
+        }
+      } else {
+        print('No se pudo iniciar sesión');
+      }
+    }
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     Size size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     return GestureDetector(
@@ -54,11 +76,11 @@ class LoginScreen extends StatelessWidget {
                               CustomTextField(
                                   margin: EdgeInsets.zero,
                                   controller: userController,
-                                  label: 'Usuario',
+                                  label: 'Correo electrónico',
                                   node: node1,
                                   onSubmitted: () => FocusScope.of(context)
                                       .requestFocus(node2),
-                                  inputType: TextInputType.text),
+                                  inputType: TextInputType.emailAddress),
                               CustomTextField(
                                 margin: EdgeInsets.zero,
                                 controller: passwordController,
@@ -66,6 +88,7 @@ class LoginScreen extends StatelessWidget {
                                 node: node2,
                                 inputType: TextInputType.text,
                                 typeTextField: TypeTextField.password,
+                                onSubmitted: () => login(context, ref),
                               ),
                               CustomTextButton(
                                   onTap: () {},
@@ -82,12 +105,7 @@ class LoginScreen extends StatelessWidget {
                             margin: EdgeInsets.symmetric(
                                 vertical: size.height * 0.02),
                             label: 'Iniciar sesión',
-                            onTap: () {
-                              FocusScope.of(context).unfocus();
-                              if (_formKey.currentState!.validate()) {
-                                // AuthFirebaseService
-                              }
-                            },
+                            onTap: () => login(context, ref),
                           )),
                       const Expanded(
                           flex: 1,
@@ -104,5 +122,9 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+    
   }
+  
+
+  
 }

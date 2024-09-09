@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserModel {
   String id;
@@ -9,8 +11,8 @@ class UserModel {
   String phone;
   String email;
   String address;
-  String curp;
-  DateTime lastActivity;
+  String? curp;
+  DateTime? lastActivity;
 
   UserModel({
     required this.id,
@@ -23,7 +25,6 @@ class UserModel {
     required this.curp,
     required this.lastActivity,
   });
-  
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -35,25 +36,33 @@ class UserModel {
       'email': email,
       'address': address,
       'curp': curp,
-      'lastActivity': lastActivity.millisecondsSinceEpoch,
+      'lastActivity': lastActivity,
     };
   }
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromMap(Map<String, dynamic> map, String id) {
+
+
     return UserModel(
-      id: map['id'] as String,
-      isAdmin: map['isAdmin'] as bool,
+      id: id,
+      isAdmin: map['admin'],
       name: map['name'] as String,
-      lastName: map['lastName'] as String,
+      lastName: map['last_name'] as String,
       phone: map['phone'] as String,
       email: map['email'] as String,
       address: map['address'] as String,
-      curp: map['curp'] as String,
-      lastActivity: DateTime.fromMillisecondsSinceEpoch(map['lastActivity'] as int),
+      curp: map['curp'],
+      lastActivity: map['last_activitie'] == null? null : (map['last_activitie'] as Timestamp).toDate() ,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory UserModel.fromJson(String source) => UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory UserModel.fromJson(String source, String id) =>
+      UserModel.fromMap(json.decode(source) as Map<String, dynamic>, id);
+
+  @override
+  String toString() {
+    return 'UserModel(id: $id, isAdmin: $isAdmin, name: $name, lastName: $lastName, phone: $phone, email: $email, address: $address, curp: $curp, lastActivity: $lastActivity)';
+  }
 }
