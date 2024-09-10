@@ -1,8 +1,7 @@
 import 'package:expedientes/domain/domain.dart';
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HelperPrefs extends ChangeNotifier {
+class HelperPrefs  {
   static final HelperPrefs _instancia = HelperPrefs._internal();
 
   factory HelperPrefs() {
@@ -21,8 +20,6 @@ class HelperPrefs extends ChangeNotifier {
   }
 
   static void setUser(UserModel user) {
-    print('Guardamos en el prefs');
-
     idUser = user.id;
     isAdmin = user.isAdmin;
     addressUser = user.address;

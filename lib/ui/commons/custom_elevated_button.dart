@@ -37,11 +37,16 @@ class CustomElevatedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           child: Center(
             child: isLoading
-                ? const CircularProgressIndicator()
+                ? const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: CircularProgressIndicator(),
+                  )
                 : Text(
                     label,
-                    style:labelStyle?? theme.textTheme.labelLarge!
-                        .copyWith(color:colorLabel?? Colors.white,),
+                    style: labelStyle ??
+                        theme.textTheme.labelLarge!.copyWith(
+                          color: colorLabel ?? Colors.white,
+                        ),
                   ),
           ),
         ),

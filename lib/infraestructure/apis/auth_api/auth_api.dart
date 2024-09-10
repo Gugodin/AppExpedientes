@@ -20,10 +20,8 @@ class AuthApi implements AuthRepositorie {
 
     print('User => $user');
     try {
-
       HelperPrefs.setUser(user!);
       return true;
-      
     } catch (e) {
       return false;
     }

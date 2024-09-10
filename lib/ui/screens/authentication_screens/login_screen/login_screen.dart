@@ -8,40 +8,54 @@ import 'widgets/widgets.dart';
 
 @RoutePage()
 // ignore: must_be_immutable
-class LoginScreen extends ConsumerWidget {
-  LoginScreen({super.key});
+class LoginScreen extends ConsumerStatefulWidget {
+  const LoginScreen({super.key});
 
+  @override
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   FocusNode node1 = FocusNode();
   FocusNode node2 = FocusNode();
-
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-Future<void> login(BuildContext context,WidgetRef ref) async {
+  bool isLoading = false;
+
+  Future<void> login(BuildContext context, WidgetRef ref) async {
     FocusScope.of(context).unfocus();
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        isLoading = true;
+      });
       bool resp = await ref
           .read(authUseCasesProvider)
           .login(userController.text, passwordController.text);
-
+      setState(() {
+        isLoading = false;
+      });
       if (!context.mounted) return;
 
       if (resp) {
+        HelperNotificationUI.notificationSuccess(
+            '!Hola ${HelperPrefs.nameUser} ${HelperPrefs.lastNameUser}!');
         if (HelperPrefs.isAdmin) {
           context.pushRoute(const AdminHomeRoute());
         } else {
           context.pushRoute(const ClientHomeRoute());
         }
       } else {
+        HelperNotificationUI.notificationError(
+            'No se pudo iniciar sesión, verifique sus credenciales por favor.');
         print('No se pudo iniciar sesión');
       }
     }
   }
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     return GestureDetector(
@@ -105,14 +119,11 @@ Future<void> login(BuildContext context,WidgetRef ref) async {
                             margin: EdgeInsets.symmetric(
                                 vertical: size.height * 0.02),
                             label: 'Iniciar sesión',
+                            isLoading: isLoading,
                             onTap: () => login(context, ref),
                           )),
-                      const Expanded(
-                          flex: 1,
-                          child: GoToRegisterWidget()),
-                      const Expanded(
-                          flex: 1,
-                          child: SocialMediaWidget()),
+                      const Expanded(flex: 1, child: GoToRegisterWidget()),
+                      const Expanded(flex: 1, child: SocialMediaWidget()),
                     ],
                   ),
                 ),
@@ -122,9 +133,5 @@ Future<void> login(BuildContext context,WidgetRef ref) async {
         ),
       ),
     );
-    
   }
-  
-
-  
 }

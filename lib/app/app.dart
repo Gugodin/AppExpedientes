@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:expedientes/config/routes/AppRouter/AppRouter.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class ExpedientApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Proyecto expedientes',
       theme: themeAppLight,
-      // darkTheme: themeAppDark,
+      builder: BotToastInit(),
       routerConfig: _appRouter.config(),
     );
   }
