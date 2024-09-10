@@ -40,8 +40,7 @@ class AuthApi implements AuthRepositorie {
 
   @override
   Future<bool> resetPassword(String email) {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
+    return authHelper.resetPasswordByEmail(email);
   }
 
   @override

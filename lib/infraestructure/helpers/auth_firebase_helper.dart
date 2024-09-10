@@ -15,7 +15,6 @@ class AuthFirebaseHelper {
   Stream<User?> get stateOfUser => autInstance.authStateChanges();
 
   Future<UserCredential?> loginEmailAndPassword(String email, String password) async {
-
     try {
       return await autInstance.signInWithEmailAndPassword(
         email: email, password: password);
@@ -24,8 +23,13 @@ class AuthFirebaseHelper {
     }
   }
 
-  Future<void> registerUser(UserModel user, String password) async {
-    final resp = await autInstance.createUserWithEmailAndPassword(
-        email: user.email, password: password);
+  Future<bool> resetPasswordByEmail(String email) async {
+    try {
+      await autInstance.sendPasswordResetEmail(email: email);
+      return true;
+    } catch (e) {
+      return false;
+    }
+    
   }
 }
