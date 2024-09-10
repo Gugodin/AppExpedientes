@@ -6,8 +6,9 @@ import '../../config/config.dart';
 class CustomTextButton extends StatelessWidget {
   final String text;
   final Function() onTap;
+  final TextStyle? textStyle;
 
-  const CustomTextButton({super.key, required this.text, required this.onTap});
+  const CustomTextButton({super.key, required this.text, required this.onTap, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Text(text,
-            style: theme.textTheme.labelMedium!.copyWith(
+            style: textStyle ?? theme.textTheme.labelMedium!.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
                 decoration: TextDecoration.underline,

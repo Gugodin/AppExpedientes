@@ -3,6 +3,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config/config.dart';
 import 'sub_screens/sub_screens.dart';
 import 'widets/widgets.dart';
 import '../../../ui.dart';
@@ -42,7 +43,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const ImageRegisterWidget(),
+              ImageLogo(
+                  containerSize: Size(double.infinity, size.height * 0.18),
+                  imageSize: Size(size.width * 0.35, size.height * 0.11),
+                  imagePath: AssetsApp.logoOwlLegalNoLetters,
+                  fit: BoxFit.scaleDown),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 width: double.infinity,

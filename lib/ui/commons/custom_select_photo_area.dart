@@ -30,6 +30,7 @@ class CustomSelectPhotoAreaWidget extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               onLongPress: () async {
+                FocusScope.of(context).unfocus();
                 if (multiSelection) {
                   try {
                     onMultiImageSelected!(
@@ -49,6 +50,7 @@ class CustomSelectPhotoAreaWidget extends StatelessWidget {
               },
               borderRadius: BorderRadius.circular(borderRadius),
               onTap: () async {
+                FocusScope.of(context).unfocus();
                 if (multiSelection) {
                   try {
                     onMultiImageSelected!(

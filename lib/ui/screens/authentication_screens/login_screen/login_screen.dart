@@ -66,7 +66,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const ImageLogoWidget(),
+                ImageLogo(
+                    containerSize: Size(double.infinity, size.height * 0.32),
+                    imageSize: Size(size.width * 0.50, size.height * 0.23),
+                    imagePath: AssetsApp.logoOwlLegalLetters,
+                    fit: BoxFit.scaleDown),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   height: size.height * 0.68,
@@ -105,7 +109,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                 onSubmitted: () => login(context, ref),
                               ),
                               CustomTextButton(
-                                  onTap: () {},
+                                  textStyle: theme.textTheme.labelMedium!
+                                      .copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                          decoration: TextDecoration.underline,
+                                          decorationColor:
+                                              MainColorsApp.brightColorText),
+                                  onTap: () => context
+                                      .pushRoute(const ForgotPasswordRoute()),
                                   text: '¿Olvidaste tu contraseña?')
                             ],
                           )),
