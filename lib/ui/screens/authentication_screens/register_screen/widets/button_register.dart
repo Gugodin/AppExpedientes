@@ -1,21 +1,37 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:expedientes/domain/domain.dart';
 
 import '../../../../../config/config.dart';
 import '../../../../ui.dart';
 
-class ButtonRegisterWidget extends StatelessWidget {
+class ButtonRegisterWidget extends ConsumerStatefulWidget {
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController phoneController;
   final GlobalKey<FormState> formKey;
   final File? imageSelected;
   final Function(String idRegister) onRegistered;
   const ButtonRegisterWidget({
-    super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.phoneController,
     required this.formKey,
     required this.imageSelected,
     required this.onRegistered,
   });
 
+  @override
+  ConsumerState<ButtonRegisterWidget> createState() =>
+      _ButtonRegisterWidgetState();
+}
+
+class _ButtonRegisterWidgetState extends ConsumerState<ButtonRegisterWidget> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -28,14 +44,39 @@ class ButtonRegisterWidget extends StatelessWidget {
         vertical: size.height * 0.01,
       ),
       label: 'Solicitar registro',
-      onTap: () {
+      isLoading: isLoading,
+      onTap: () async {
         FocusScope.of(context).unfocus();
-        if (formKey.currentState!.validate() && imageSelected != null) {
-          print('HACEMOS SET STATE');
-          HelperPrefs.registrationRequest = '1';
-          onRegistered('1');
+        if (widget.formKey.currentState!.validate() &&
+            widget.imageSelected != null) {
+          setState(() {
+            isLoading = true;
+          });
+          final idRequest = await ref
+              .read(authUseCasesProvider)
+              .requestRegister(RequestModel(
+                  id: null,
+                  dateCreated: DateTime.now(),
+                  clientName: widget.nameController.text,
+                  isAcepted: false,
+                  typeRequest: TypeRequest.account,
+                  email: widget.emailController.text,
+                  image: widget.imageSelected,
+                  phoneNumber: widget.phoneController.text));
+          setState(() {
+            isLoading = true;
+          });
+
+          if (idRequest != null) {
+            HelperPrefs.registrationRequest = idRequest;
+            widget.onRegistered(idRequest);
+          } else {
+            HelperNotificationUI.notificationError(
+                'No se pudo completar el registro, por favor intentelo mas tarde.');
+          }
         } else {
-          print('SELECCIONA UNA IMAGEN');
+          HelperNotificationUI.notificationError(
+              'Selecciona una imagen por favor.');
         }
       },
     );

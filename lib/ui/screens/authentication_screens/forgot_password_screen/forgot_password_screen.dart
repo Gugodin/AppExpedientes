@@ -32,9 +32,11 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
       setState(() {
         isLoading = false;
       });
+      if(!mounted) return;
       if (resp) {
+        context.maybePop(); 
         HelperNotificationUI.notificationSuccess(
-            'Se le ha enviado un correo de restablecimiento de contraseña, por favor verifiquelo e intente ingresar a la aplicación de nuevo.');
+            'Se le ha enviado un correo de restablecimiento de contraseña, favor de verificarlo.');
       } else {
         HelperNotificationUI.notificationSuccess(
             'No se pudo enviar el correo, intentelo mas tarde.');

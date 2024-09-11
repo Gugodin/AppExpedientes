@@ -20,7 +20,7 @@ class _RegisterBodyState extends State<RegisterBody> {
   FocusNode node3 = FocusNode();
   TextEditingController controllerEmail = TextEditingController();
   File? imageSelected;
-
+  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -69,6 +69,9 @@ class _RegisterBodyState extends State<RegisterBody> {
           Expanded(
               flex: 2,
               child: ButtonRegisterWidget(
+                emailController: controllerEmail,
+                phoneController: controllerNumber,
+                nameController: controllerName,
                 formKey: _formKey,
                 imageSelected: imageSelected,
                 onRegistered: widget.onRegistrated,

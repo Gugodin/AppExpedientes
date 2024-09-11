@@ -1,4 +1,3 @@
-import 'package:expedientes/domain/models/user/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebaseHelper {
