@@ -14,7 +14,9 @@ class AuthUseCases {
   Future<void> logOut () => authRepositorie.logOut();
   Future<bool> resetPassword (String email) => authRepositorie.resetPassword(email);
   Future<String?> requestRegister (RequestModel request) => authRepositorie.requestRegister(request);
-  Stream<User?> observeUserAuthState (UserModel userToRegister) => authRepositorie.observeUserAuthState();
+  Future<bool?> hasRegistrationAcepted  (String idRequest) => authRepositorie.hasRegistrationAcepted(idRequest);
+  Stream<User?> observeUserAuthState () => authRepositorie.observeUserAuthState();
+  Future<bool> deleteRequest (String idRequest) => authRepositorie.deleteRequest(idRequest);
 
 }
 

@@ -27,6 +27,16 @@ final listDescriptionOnBoarding = [
 ];
 
 const String label1HasRegisteredUser =
-    'Tu solicitud ha sido enviada, tenemos una espera de al menos 3 días habiles para contestarte. \n\nNos contactaremos contigo una vez ya se haya aceptado tu solicitud.';
+    'Su solicitud ha sido enviada, tenemos una espera de al menos 3 días habiles para contestarle. \n\nNos contactaremos con usted una vez ya se haya sido aceptada su solicitud.';
 const String label2HasRegisteredUser =
-    '\nSi deseas cancelar la solicitud para mandar otra, has click en el boton de abajo.';
+    '\nSi desea cancelar la solicitud para mandar otra, haga click en el boton de abajo.';
+
+const String label1HasRegisteredUserAcepted =
+    'Su solicitud ha sido aceptada, espere a que nos contactemos con usted via número de teléfono o correo para proporcionarle sus credenciales.';
+const String label2HasRegisteredUserAcepted =
+    '\n(La contraseña podrá ser modificada dentro de la aplicación)';
+
+const String label1HasRegisteredUserNotAcepted =
+    'Su solicitud no ha sido aceptada, esto puede ser por motivos de foto no nitida o escribió algún dato mal.';
+const String label2HasRegisteredUserNotAcepted =
+    '\nElimine esta solicitud con el botón de abajo e intente realizar otra vez la solicitud.';

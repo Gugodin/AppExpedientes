@@ -15,8 +15,6 @@ class RequestCollection {
 
   Future<String?> createRequest(RequestModel requestToCreate) async {
     try {
-      print('REQUEST A CREAR');
-      print(requestToCreate.toMap());
       final document = await storeInstance
           .collection(_collection)
           .add(requestToCreate.toMap());
@@ -25,6 +23,35 @@ class RequestCollection {
     } catch (e) {
       print(e.toString());
       return null;
+    }
+  }
+
+  Future<bool?> isRequestAceptedById(String idRequest) async {
+    try {
+      
+      final document =
+          await storeInstance.collection(_collection).doc(idRequest).get();
+
+      final request = RequestModel.fromMap(document.data()!);
+      if(request.isAcepted == null) return null;
+      if (request.isAcepted!) return true;
+      return false;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+  Future<bool> delteRequestById(String idRequest) async {
+    try {
+      
+      
+    await storeInstance.collection(_collection).  doc(idRequest).delete();
+
+      return true;
+    } catch (e) {
+      print(e.toString());
+      return false;
     }
   }
 }

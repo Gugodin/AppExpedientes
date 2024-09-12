@@ -14,7 +14,7 @@ class RequestModel {
   String? reason;
   DateTime dateCreated;
   String clientName;
-  bool isAcepted;
+  bool? isAcepted;
   String? reasonAdmin;
   TypeRequest typeRequest;
   String? email;
@@ -52,12 +52,12 @@ class RequestModel {
 
   factory RequestModel.fromMap(Map<String, dynamic> map) {
     return RequestModel(
-      id: map['id'] as String,
+      id: map['id'],
       idUser: map['idUser'] != null ? map['idUser'] as String : null,
       reason: map['reason'] != null ? map['reason'] as String : null,
       dateCreated:(map['dateCreated'] as Timestamp).toDate(),
       clientName: map['clientName'] as String,
-      isAcepted: map['isAcepted'] as bool,
+      isAcepted: map['isAcepted'],
       reasonAdmin: map['reasonAdmin'] != null ? map['reasonAdmin'] as String : null,
       typeRequest: map['typeRequest'] == 'account'? TypeRequest.account: TypeRequest.cases,
       email: map['email'] != null ? map['email'] as String : null,
@@ -68,4 +68,9 @@ class RequestModel {
   String toJson() => json.encode(toMap());
 
   factory RequestModel.fromJson(String source) => RequestModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'RequestModel(id: $id, idUser: $idUser, reason: $reason, dateCreated: $dateCreated, clientName: $clientName, isAcepted: $isAcepted, reasonAdmin: $reasonAdmin, typeRequest: $typeRequest, email: $email, phoneNumber: $phoneNumber, image: $image)';
+  }
 }

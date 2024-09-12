@@ -24,4 +24,29 @@ class UserCollection {
       return null;
     }
   }
+
+  Future<bool> verifyIfUserExistWithEmail(String email, String phone) async {
+    try {
+      final document = await storeInstance
+          .collection(_collection)
+          .where('email', isEqualTo: email)
+          .count()
+          .get();
+
+      final document2 = await storeInstance
+          .collection(_collection)
+          .where('phone', isEqualTo: phone)
+          .count()
+          .get();
+
+      if (document.count == null || document2.count == null) return true;
+
+      if (document.count! > 0 || document2.count! > 0) return true;
+
+      return false;
+    } catch (e) {
+      print(e.toString());
+      return true;
+    }
+  }
 }

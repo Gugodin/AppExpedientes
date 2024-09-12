@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'store_collections/store_collections.dart';
@@ -14,8 +12,9 @@ class StoreFirebaseHelper {
   }
 
   final FirebaseFirestore _storeInstance = FirebaseFirestore.instance;
-  
-  late UserCollection userCollection = UserCollection(storeInstance: _storeInstance);
-  late RequestCollection requestCollection = RequestCollection(storeInstance: _storeInstance);
 
+  late UserCollection userCollection =
+      UserCollection(storeInstance: _storeInstance);
+  late RequestCollection requestCollection =
+      RequestCollection(storeInstance: _storeInstance);
 }

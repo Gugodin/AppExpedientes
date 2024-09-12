@@ -58,14 +58,20 @@ class _ButtonRegisterWidgetState extends ConsumerState<ButtonRegisterWidget> {
                   id: null,
                   dateCreated: DateTime.now(),
                   clientName: widget.nameController.text,
-                  isAcepted: false,
+                  isAcepted: null,
                   typeRequest: TypeRequest.account,
                   email: widget.emailController.text,
                   image: widget.imageSelected,
                   phoneNumber: widget.phoneController.text));
           setState(() {
-            isLoading = true;
+            isLoading = false;
           });
+
+          if (idRequest == 'USER EXIST') {
+            HelperNotificationUI.notificationError(
+                'Ya existe un usuario con ese correo o número de teléfono, intente con otro.');
+            return;
+          }
 
           if (idRequest != null) {
             HelperPrefs.registrationRequest = idRequest;

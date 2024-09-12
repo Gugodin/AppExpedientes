@@ -13,14 +13,9 @@ class AuthApi implements AuthRepositorie {
   Future<bool> login(String email, String password) async {
     final userCredentials =
         await authHelper.loginEmailAndPassword(email, password);
-
     if (userCredentials == null) return false;
-
     final user =
         await storeHelper.userCollection.getUserById(userCredentials.user!.uid);
-
-    print('User => $user');
-
     try {
       HelperPrefs.setUser(user!);
       return true;
@@ -36,6 +31,11 @@ class AuthApi implements AuthRepositorie {
 
   @override
   Future<String?> requestRegister(RequestModel request) async {
+    final userExist = await storeHelper.userCollection
+        .verifyIfUserExistWithEmail(request.email!, request.phoneNumber!);
+
+    if (userExist) return 'USER EXIST';
+
     final idRequest =
         await storeHelper.requestCollection.createRequest(request);
 
@@ -52,8 +52,24 @@ class AuthApi implements AuthRepositorie {
   }
 
   @override
+  Future<bool?> hasRegistrationAcepted(String idRegistration) async {
+    return await storeHelper.requestCollection
+        .isRequestAceptedById(idRegistration);
+  }
+
+  @override
   Stream<User?> observeUserAuthState() {
-    // TODO: implement observeUserAuthState
     return authHelper.stateOfUser;
+  }
+
+  @override
+  Future<bool> deleteRequest(String idRegistration) async {
+    final didDeleteRequestStore =
+        await storeHelper.requestCollection.delteRequestById(idRegistration);
+    if (!didDeleteRequestStore) return false;
+    final didDeleteImageStorage = await storageHelper.requestReference
+        .deleteImageRequestById(idRegistration);
+    if (!didDeleteImageStorage) return false;
+    return true;
   }
 }

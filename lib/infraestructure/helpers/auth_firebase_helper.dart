@@ -29,6 +29,5 @@ class AuthFirebaseHelper {
     } catch (e) {
       return false;
     }
-    
   }
 }

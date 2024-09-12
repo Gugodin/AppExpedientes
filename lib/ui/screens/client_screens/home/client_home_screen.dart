@@ -1,12 +1,44 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
 import '../../../ui.dart';
 
 @RoutePage()
-class ClientHomeScreen extends StatelessWidget {
+class ClientHomeScreen extends ConsumerStatefulWidget {
   const ClientHomeScreen({super.key});
+
+  @override
+  ConsumerState<ClientHomeScreen> createState() => _ClientHomeScreenState();
+}
+
+class _ClientHomeScreenState extends ConsumerState<ClientHomeScreen> {
+
+  late StreamSubscription<User?> subscription;
+
+  @override
+  void initState() {
+    super.initState();
+    subscription = ref.read(authUseCasesProvider).observeUserAuthState().listen(
+      (event) {
+        print('USUARIO => $event');
+        if (event == null) {
+          context.router.replace(const LoginRoute());
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    subscription.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +68,8 @@ class ClientHomeScreen extends StatelessWidget {
             CustomCircleButton(
               icon: Icons.logout,
               onTap: () async {
+                                await ref.read(authUseCasesProvider).logOut();
                 await HelperPrefs.clearPrefs();
-                context.router.replace(LoginRoute());
               },
             ),
           ],

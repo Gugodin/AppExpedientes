@@ -14,8 +14,18 @@ class RequestReference {
 
   Future<bool> saveImageRequest(String idReference, File imageToUpload) async {
     try {
-      final document = await storageInstance.ref(_reference).child(idReference).putFile(imageToUpload);
+     await storageInstance.ref(_reference).child(idReference).putFile(imageToUpload);
 
+      return true;
+    } catch (e) {
+      print('Subiendo imagen \n${e.toString()}');
+      return false;
+    }
+  }
+
+  Future<bool> deleteImageRequestById(String idReference) async {
+    try {
+      await storageInstance.ref(_reference).child(idReference).delete();
       return true;
     } catch (e) {
       print('Subiendo imagen \n${e.toString()}');
