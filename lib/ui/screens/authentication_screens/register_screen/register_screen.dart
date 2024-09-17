@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../config/config.dart';
 import 'sub_screens/sub_screens.dart';
-import 'widets/widgets.dart';
 import '../../../ui.dart';
 
 @RoutePage()

@@ -30,8 +30,6 @@ class _HasRegisteredScreenState extends ConsumerState<HasRegisteredScreen> {
     final hasAcepted = await ref
         .read(authUseCasesProvider)
         .hasRegistrationAcepted(HelperPrefs.registrationRequest);
-    print('SOLICITUD ACEPTADA?');
-    print(hasAcepted);
 
     switch (hasAcepted) {
       case true:

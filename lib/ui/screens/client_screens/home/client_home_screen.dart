@@ -25,7 +25,6 @@ class _ClientHomeScreenState extends ConsumerState<ClientHomeScreen> {
     super.initState();
     subscription = ref.read(authUseCasesProvider).observeUserAuthState().listen(
       (event) {
-        print('USUARIO => $event');
         if (event == null) {
           context.router.replace(const LoginRoute());
         }

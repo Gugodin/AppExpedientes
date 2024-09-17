@@ -126,11 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       controller.animateToPage(currentIndex,
           duration: const Duration(milliseconds: 800), curve: Curves.linear);
     } else {
-      print('HOLAAA');
-      // context.navigateNamedTo(LoginRoute.name);
-      // router.pushNamed('/books');
       context.router.push(LoginRoute());
-      
     }
   }
 

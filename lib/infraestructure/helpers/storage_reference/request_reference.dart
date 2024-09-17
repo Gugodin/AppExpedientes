@@ -18,7 +18,6 @@ class RequestReference {
 
       return true;
     } catch (e) {
-      print('Subiendo imagen \n${e.toString()}');
       return false;
     }
   }
@@ -28,7 +27,6 @@ class RequestReference {
       await storageInstance.ref(_reference).child(idReference).delete();
       return true;
     } catch (e) {
-      print('Subiendo imagen \n${e.toString()}');
       return false;
     }
   }

@@ -1,5 +1,4 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:expedientes/config/assets/assets.dart';
 import 'package:expedientes/config/colors/colors.dart';
 import 'package:flutter/material.dart';
 

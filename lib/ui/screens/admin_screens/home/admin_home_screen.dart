@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
 import '../../../ui.dart';
+import 'widgets/widgets.dart';
 
 @RoutePage()
 class AdminHomeScreen extends ConsumerStatefulWidget {
@@ -23,7 +24,6 @@ class _AdminHomeScreenState extends ConsumerState<AdminHomeScreen> {
     super.initState();
     subscription = ref.read(authUseCasesProvider).observeUserAuthState().listen(
       (event) {
-        print('USUARIO => $event');
         if (event == null) {
           context.router.replace(const LoginRoute());
         }
@@ -31,46 +31,61 @@ class _AdminHomeScreenState extends ConsumerState<AdminHomeScreen> {
     );
   }
 
-    @override
+  @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     subscription.cancel();
   }
-  
+
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    Size size = MediaQuery.of(context).size;
+    // final theme = Theme.of(context);
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-        width: size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'PANEL ADMIN',
-              style: theme.textTheme.labelLarge,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Nombre: ${HelperPrefs.nameUser} ${HelperPrefs.lastNameUser}',
-              style: const TextStyle(color: Colors.white),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomCircleButton(
-              icon: Icons.logout,
-              onTap: () async {
-                await ref.read(authUseCasesProvider).logOut();
-                await HelperPrefs.clearPrefs();
-              },
-            ),
-          ],
-        ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Expanded(
+              flex: 2,
+              child: NameAndImageWidget()),
+          Expanded(
+              flex: 3,
+              child: Container(
+                color: Colors.red,
+              )),
+          Expanded(
+              flex: 4,
+              child: Container(
+                color: Colors.green,
+              )),
+          Expanded(
+              flex: 4,
+              child: Container(
+                color: Colors.purple,
+              )),
+          // Text(
+          //   'PANEL ADMIN',
+          //   style: theme.textTheme.labelLarge,
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          // Text(
+          //   'Nombre: ${HelperPrefs.nameUser} ${HelperPrefs.lastNameUser}',
+          //   style: const TextStyle(color: Colors.white),
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          // CustomCircleButton(
+          //   icon: Icons.logout,
+          //   onTap: () async {
+          //     await ref.read(authUseCasesProvider).logOut();
+          //     await HelperPrefs.clearPrefs();
+          //   },
+          // ),
+        ],
       ),
     );
   }

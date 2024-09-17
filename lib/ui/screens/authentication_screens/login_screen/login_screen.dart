@@ -49,7 +49,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       } else {
         HelperNotificationUI.notificationError(
             'No se pudo iniciar sesión, verifique sus credenciales por favor.');
-        print('No se pudo iniciar sesión');
       }
     }
   }
