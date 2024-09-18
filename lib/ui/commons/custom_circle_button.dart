@@ -8,6 +8,8 @@ class CustomCircleButton extends StatelessWidget {
   final Function() onTap;
   final bool isLoading;
   final EdgeInsets margin;
+  final double? iconSize;
+  final EdgeInsetsGeometry ? padding;
 
   const CustomCircleButton(
       {required this.icon,
@@ -15,6 +17,8 @@ class CustomCircleButton extends StatelessWidget {
       this.colorBackGround,
       required this.onTap,
       this.margin = const EdgeInsets.all(10),
+      this.iconSize,
+      this.padding,
       this.isLoading = false});
 
   @override
@@ -29,10 +33,12 @@ class CustomCircleButton extends StatelessWidget {
           onTap: onTap,
           borderRadius: BorderRadius.circular(30),
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: padding ?? const EdgeInsets.all(18),
             child: Icon(
               icon,
               color: colorIcon ?? Colors.white,
+              
+              size: iconSize,
             ),
           ),
         ),
