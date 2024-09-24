@@ -38,28 +38,41 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: MainColorsApp.brightColorText),
-      child: Row(
-        // mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            height: 25,
-            width: 25,
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle, color: MainColorsApp.backgroundColorD),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {},
+          borderRadius: BorderRadius.circular(25),
+          splashColor: Colors.red,
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Row(
+              // mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: 25,
+                  width: 25,
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: MainColorsApp.backgroundColorD),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  nameButton,
+                  style: theme.textTheme.labelSmall!.copyWith(
+                      color: Colors.black,
+                      fontSize: 8,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
           ),
-          const SizedBox(
-            width: 5,
-          ),
-          Text(
-            nameButton,
-            style: theme.textTheme.labelSmall!.copyWith(
-                color: Colors.black, fontSize: 8, fontWeight: FontWeight.bold),
-          )
-        ],
+        ),
       ),
     );
   }

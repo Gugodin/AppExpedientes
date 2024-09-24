@@ -18,6 +18,7 @@ class CardLastCaseWidget extends ConsumerWidget {
         boxShadow: const [AppStyles.buttonShadow],
       ),
       padding: const EdgeInsets.all(12),
+      margin: EdgeInsets.only(bottom: size.height * 0.055),
       child: Column(
         children: [
           const Expanded(flex: 1, child: NameAndDate()),

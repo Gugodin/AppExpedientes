@@ -29,11 +29,23 @@ class NameAndImageWidget extends StatelessWidget {
             )),
         Expanded(
             flex: 2,
-            child: ImageLogo(
-                containerSize: const Size(double.infinity, double.infinity),
-                imageSize: const Size(100, 85),
-                imagePath: AssetsApp.logoOwlLegalNoLetters,
-                fit: BoxFit.fill)),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () {}, icon: Icon(Icons.notifications)),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    IconButton(onPressed: () {}, icon: Icon(Icons.logout)),
+                  ],
+                ),
+              ),
+            )),
       ],
     );
   }

@@ -15,7 +15,9 @@ class LastCaseWidget extends StatelessWidget {
         children: [
           const Positioned.fill(child: CardLastCaseWidget()),
           Positioned(
-              right: 10, top: size.height * 0.06, child: const MenuLastCaseWidget())
+              right: 10,
+              top: size.height * 0.06,
+              child: const MenuLastCaseWidget())
         ],
       ),
     );

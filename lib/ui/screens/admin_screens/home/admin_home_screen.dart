@@ -46,15 +46,20 @@ class _AdminHomeScreenState extends ConsumerState<AdminHomeScreen> {
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Expanded(flex: 2, child: NameAndImageWidget()),
-          const Expanded(flex: 3, child: LastCaseWidget()),
+          const Expanded(flex: 3, child: NameAndImageWidget()),
+          const Expanded(flex: 6, child: LastCaseWidget()),
           Expanded(
-              flex: 4,
+              flex: 2,
               child: Container(
-                color: Colors.transparent,
+                color: Colors.yellow,
               )),
           Expanded(
               flex: 4,
+              child: Container(
+                color: Colors.blue,
+              )),
+          Expanded(
+              flex: 5,
               child: Container(
                 color: Colors.purple,
               )),
