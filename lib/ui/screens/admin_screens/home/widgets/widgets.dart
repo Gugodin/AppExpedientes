@@ -1,2 +1,2 @@
-export 'name_and_image.dart';
-export 'last_case.dart';
+export 'top_bar/top_bar.dart';
+export 'last_case/last_case.dart';

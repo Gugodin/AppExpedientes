@@ -26,7 +26,7 @@ class _HasRegisteredScreenState extends ConsumerState<HasRegisteredScreen> {
 
   void verifyIfRegistrationIsAcepted() async {
     final hasAcepted = await ref
-        .read(authUseCasesProvider)
+        .read(requestUseCasesProvider)
         .hasRegistrationAcepted(HelperPrefs.registrationRequest);
 
     switch (hasAcepted) {
@@ -98,7 +98,7 @@ class _HasRegisteredScreenState extends ConsumerState<HasRegisteredScreen> {
                           icon: Icons.close,
                           onTap: () async {
                             final didDelete = await ref
-                                .read(authUseCasesProvider)
+                                .read(requestUseCasesProvider)
                                 .deleteRequest(HelperPrefs.registrationRequest);
                             if (didDelete) {
                               HelperPrefs.registrationRequest = '';

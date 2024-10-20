@@ -53,7 +53,7 @@ class _ButtonRegisterWidgetState extends ConsumerState<ButtonRegisterWidget> {
             isLoading = true;
           });
           final idRequest = await ref
-              .read(authUseCasesProvider)
+              .read(requestUseCasesProvider)
               .requestRegister(RequestModel(
                   id: null,
                   dateCreated: DateTime.now(),

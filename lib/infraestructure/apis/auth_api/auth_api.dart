@@ -28,48 +28,14 @@ class AuthApi implements AuthRepositorie {
   Future<void> logOut() async {
     await authHelper.autInstance.signOut();
   }
-
-  @override
-  Future<String?> requestRegister(RequestModel request) async {
-    final userExist = await storeHelper.userCollection
-        .verifyIfUserExistWithEmail(request.email!, request.phoneNumber!);
-
-    if (userExist) return 'USER EXIST';
-
-    final idRequest =
-        await storeHelper.requestCollection.createRequest(request);
-
-    if (idRequest == null) return null;
-
-    final didSaveImage = await storageHelper.requestReference
-        .saveImageRequest(idRequest, request.image!);
-    return didSaveImage ? idRequest : null;
-  }
-
-  @override
-  Future<bool> resetPassword(String email) {
-    return authHelper.resetPasswordByEmail(email);
-  }
-
-  @override
-  Future<bool?> hasRegistrationAcepted(String idRegistration) async {
-    return await storeHelper.requestCollection
-        .isRequestAceptedById(idRegistration);
-  }
-
-  @override
+  
+   @override
   Stream<User?> observeUserAuthState() {
     return authHelper.stateOfUser;
   }
 
-  @override
-  Future<bool> deleteRequest(String idRegistration) async {
-    final didDeleteRequestStore =
-        await storeHelper.requestCollection.delteRequestById(idRegistration);
-    if (!didDeleteRequestStore) return false;
-    final didDeleteImageStorage = await storageHelper.requestReference
-        .deleteImageRequestById(idRegistration);
-    if (!didDeleteImageStorage) return false;
-    return true;
+   @override
+  Future<bool> resetPassword(String email) {
+    return authHelper.resetPasswordByEmail(email);
   }
 }

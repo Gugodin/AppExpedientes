@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'store_collections/store_collections.dart';
 
+// FIRESTORE DATABASE
+
 class StoreFirebaseHelper {
   static final instance = StoreFirebaseHelper._();
 

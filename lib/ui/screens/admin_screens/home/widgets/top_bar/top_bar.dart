@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../config/config.dart';
-import '../../../../ui.dart';
+import '../../../../../../config/config.dart';
+import '../../../../../ui.dart';
 
-class NameAndImageWidget extends StatelessWidget {
-  const NameAndImageWidget({super.key});
+class TopBar extends StatelessWidget {
+  const TopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,8 @@ class NameAndImageWidget extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.logout)),
                   ],
                 ),
               ),

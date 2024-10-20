@@ -1,1 +1,1 @@
-export 'auth_provider/auth_provider.dart';
+export 'auth_provider/use_cases_provider.dart';
