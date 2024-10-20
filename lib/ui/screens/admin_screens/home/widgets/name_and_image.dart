@@ -37,11 +37,12 @@ class NameAndImageWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                        onPressed: () {}, icon: Icon(Icons.notifications)),
-                    SizedBox(
+                        onPressed: () {},
+                        icon: const Icon(Icons.notifications)),
+                    const SizedBox(
                       width: 5,
                     ),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.logout)),
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.logout)),
                   ],
                 ),
               ),

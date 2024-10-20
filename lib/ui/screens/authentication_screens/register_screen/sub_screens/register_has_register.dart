@@ -19,9 +19,7 @@ class _HasRegisteredScreenState extends ConsumerState<HasRegisteredScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
     // HelperPrefs.registrationRequest;
     verifyIfRegistrationIsAcepted();
   }
@@ -91,7 +89,7 @@ class _HasRegisteredScreenState extends ConsumerState<HasRegisteredScreen> {
                 height: 20,
               ),
               registrationAccepted == 1
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Expanded(
                       flex: 2,
                       child: Align(

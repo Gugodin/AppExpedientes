@@ -126,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       controller.animateToPage(currentIndex,
           duration: const Duration(milliseconds: 800), curve: Curves.linear);
     } else {
-      context.router.push(LoginRoute());
+      context.router.push(const LoginRoute());
     }
   }
 
@@ -149,7 +149,7 @@ class PageIndicator extends StatelessWidget {
     return Container(
       width: size.width * 0.9,
       alignment: Alignment.bottomCenter,
-      padding: EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List<Widget>.generate(
