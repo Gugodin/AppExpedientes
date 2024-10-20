@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../config/themes/themes.dart';
 
+// Este es simplemente la primera intancia de la aplicación
 class ExpedientApp extends StatelessWidget {
   ExpedientApp({super.key});
   final _appRouter = AppRouter();

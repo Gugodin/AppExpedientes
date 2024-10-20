@@ -1,9 +1,15 @@
 import '../../../domain/domain.dart';
 import '../../helpers/helpers.dart';
 
+/* API que se encarga de implementar los eventos del RequestRepositorie y hace uso de los helpers para poder  
+  implementar las funcionalidades requeridas
+*/
 class RequestApi implements RequestRepositorie {
+  // Helper encargado de la base de datos de firebase
   final storeHelper = StoreFirebaseHelper();
+  // Helper encargado de guardados de archivos de firebase
   final storageHelper = StorageFirebaseHelper();
+  
   @override
   // Funcion que el usuario realiza cuando quiere realizar una solicitud de creación de cuenta
   Future<String?> requestRegister(RequestModel request) async {
@@ -12,8 +18,8 @@ class RequestApi implements RequestRepositorie {
         .verifyIfUserExistWithEmail(request.email!, request.phoneNumber!);
     // Si regresa que existe, regresamo un string para notificar a la vista
     if (userExist) return 'USER EXIST';
-    
-    // Si no existe, procedemos a realizar la creación de la solicitud y obtenemos el id del registro creado 
+
+    // Si no existe, procedemos a realizar la creación de la solicitud y obtenemos el id del registro creado
     final idRequest =
         await storeHelper.requestCollection.createRequest(request);
     // Si nos regresa null es porque dio un error al momento de crear la solicitud

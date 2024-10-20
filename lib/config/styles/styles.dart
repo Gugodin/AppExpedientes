@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Estilos prediseñados de widgets
+
 class AppStyles {
   static const containerShadow = BoxShadow(
       color: Colors.black,

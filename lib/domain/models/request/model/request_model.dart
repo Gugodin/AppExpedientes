@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-
+// Este modelo tiene como objetivo guardar solicitudes de creación de cuenta o solicitudes de creaciones de casos
 enum TypeRequest {account, cases}
 
 class RequestModel {

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../colors/colors.dart';
 
+//Tema principal de la aplicación 
+
 ThemeData themeAppLight = ThemeData(
     fontFamily: 'Quicksand',
     brightness: Brightness.light,

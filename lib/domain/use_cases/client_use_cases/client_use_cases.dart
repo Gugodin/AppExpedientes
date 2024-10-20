@@ -2,11 +2,14 @@
 
 import '../../domain.dart';
 
-class ClientUseCases {
+// Casos de uso general del modulo de usuarios
+// En realidad esto es un adapter ya que esta tomando como parametro de la instacia a cualquier repositorio que venga
+
+class UserUseCases {
   
     UserRepositorie userRepositorie;
     
-  ClientUseCases({
+  UserUseCases({
     required this.userRepositorie,
   });
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Clase en donde tenemos almacenados los colores principales de la aplicación
 class MainColorsApp {
   static const backgroundColor = Color(0xFF0F3B56);
   static const backgroundColorD = Color(0xFF0C2F45);

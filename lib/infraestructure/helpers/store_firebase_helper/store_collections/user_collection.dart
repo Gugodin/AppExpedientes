@@ -2,8 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../../domain/domain.dart';
+import '../../../../domain/domain.dart';
 
+// Coleccion de usuarios que se encarga de proporcionar funcionalidades generales de la base de datos (CRUD)
 class UserCollection {
   FirebaseFirestore storeInstance;
 
@@ -12,7 +13,7 @@ class UserCollection {
   });
 
   final String _collection = 'user';
-
+  /* Funcionalidad que nos sirve para obtener a un usuario con el id proporcionado */
   Future<UserModel?> getUserById(String idUser) async {
     try {
       final document =
@@ -24,7 +25,7 @@ class UserCollection {
       return null;
     }
   }
-
+  /* Verificación si algun usuario previamente registrado tienen el email o numero dadp */
   Future<bool> verifyIfUserExistWithEmail(String email, String phone) async {
     try {
       final document = await storeInstance

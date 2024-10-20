@@ -1,3 +1,4 @@
+// Clase en donde tenemos almacenados todos los assets en variables
 class AssetsApp {
   static String onB1 = 'assets/images/on_boarding/OB1.png';
   static String onB2 = 'assets/images/on_boarding/OB2.png';

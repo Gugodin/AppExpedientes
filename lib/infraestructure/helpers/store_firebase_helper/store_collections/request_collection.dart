@@ -2,8 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../../domain/domain.dart';
+import '../../../../domain/domain.dart';
 
+// Coleccion de solicitudes que se encarga de proporcionar funcionalidades generales de la base de datos (CRUD)
 class RequestCollection {
   FirebaseFirestore storeInstance;
 
@@ -12,7 +13,7 @@ class RequestCollection {
   });
 
   final String _collection = 'request';
-
+  /* Funcionalidad que nos sirve para crear una solicitud */
   Future<String?> createRequest(RequestModel requestToCreate) async {
     try {
       final document = await storeInstance
@@ -25,7 +26,7 @@ class RequestCollection {
       return null;
     }
   }
-
+  /* Funcionalidad que nos sirve para obtener si una solicitud ya ha sido aceptada */
   Future<bool?> isRequestAceptedById(String idRequest) async {
     try {
       
@@ -41,13 +42,10 @@ class RequestCollection {
       return null;
     }
   }
-
+  /* Funcionalidad que nos sirve para eliminar una solicitud */
   Future<bool> delteRequestById(String idRequest) async {
     try {
-      
-      
-    await storeInstance.collection(_collection).  doc(idRequest).delete();
-
+    await storeInstance.collection(_collection).doc(idRequest).delete();
       return true;
     } catch (e) {
       print(e.toString());

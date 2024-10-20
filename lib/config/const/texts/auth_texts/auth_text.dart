@@ -1,5 +1,7 @@
 import '../../../config.dart';
 
+// Constantes sobre la parte de autenticacion
+
 final listImages = [
   AssetsApp.onB1,
   AssetsApp.onB2,

@@ -2,6 +2,9 @@
 
 import '../../domain.dart';
 
+// Casos de uso general del modulo de solicitudes
+// En realidad esto es un adapter ya que esta tomando como parametro de la instacia a cualquier repositorio que venga
+
 class RequestUseCases {
   final RequestRepositorie requestRepositorie;
 

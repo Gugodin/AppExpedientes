@@ -1,5 +1,5 @@
 import '../../models.dart';
-
+// Repositorio realacionado con el CRUD general de usuarios
 abstract class UserRepositorie {
   Future<List<UserModel>> getAllUsers();
   Future<UserModel> getUserById(String idUser);
